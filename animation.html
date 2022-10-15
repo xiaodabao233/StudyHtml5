@@ -13,41 +13,97 @@
         @keyframes myfirst {
             0% {
                 background-color: red;
-                left: 0%;
-                top: 0%;
-            }
-            25% {
-                background-color: yellow;
-                left: 73%;
-                top: 29%;
+                left: 15%;
+                top: 60%;
             }
             50% {
                 background-color: blue;
-                left: 2%;
-                top: 90%;
-            }
-            75% {
-                background-color: green;
-                left: 44%;
-                top: 8%;
+                left: 60%;
+                top: 60%;
+                transform:rotate(180deg);
             }
             100% {
                 background-color: red;
-                left: 0%;
-                top: 0%;
+                left: 15%;
+                top: 60%;
             }
         }
-        div{
-            animation: myfirst  5s;
+        .dh{
+            animation: myfirst 3s infinite;
             position: absolute;
             padding: 30px;
+            border-radius: 5px;
+        }
+        .gd{
+            width: 100px;
+            height: 100px;
+            background-color: #2479ff;
+            border-radius: 10px;
+            transition: width 2s, height 2s, transform 2s; 
+            margin-left: 15%;
+            margin-top: 10%;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+            display: block;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .gd:hover{
+            width: 400px;
+            height: 100px;
+            transform: rotate(0deg);
+        }
+        .gd a{
+            color: #fff;
+            font-size: 20px;
+            /* font-style: italic; */
+            z-index: 2;
+            position: absolute;
+            left: 30px;
+            top: 0px;
+            overflow: hidden;
+        }
+        .gd-d{
+            width: 100px;
+            height: 100px;
+            background: #2479ff;
+            position: absolute;
+            border-radius: 10px;
+            right: 0px;
+            top: 0px;
+            z-index: 3;
+        }
+        .img1{
+            width: 80px;
+            top: 20px;
+            right: 10px;
+            position: absolute;
+        }
+        .img2{
+            width: 80px;
+            top: 20px;
+            right: 0px;
+            position: absolute;
         }
     </style>
 </head>
 <body>
 
 
-    <div>css3动画</div>
+    <div class="dh">css3动画</div>
+    <div class="gd">
+        <a>访 客 vistor</a>
+        <div class="gd-d">
+            <img class="img1" src="./images/访客.png">
+        </div>
+    </div>
+    <div class="gd">
+        <a>学 生 student</a>
+        <div class="gd-d">
+            <img class="img2" src="./images/学生.png">
+        </div>
+    </div>
     
 </body>
 </html>
