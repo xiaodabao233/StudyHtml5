@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <style>
+        html,body{
+            margin: 0px;
+        }
+        .bor{
+            height: 500px;
+            width: 400px;
+            background-color: 255, 250, 240;
+            margin: auto;
+            margin-top: 40px;
+            border: 2px solid black;
+        }
+        .ping input{
+            height: 80px;
+            line-height: 40px;
+            width: 392px;
+            text-align: right;
+            border: 2px solid black;
+            font-size: 50px;
+        }
+        .jian input{
+            font-size: 40px;
+            width: 80px;
+            height: 80px;
+            margin: 8px;
+            margin-top: 15px;
+            border-radius: 10px;   
+        }
+        .jian input:hover{
+            background-color: aqua;
+        }
+        .i{
+            background-color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bor">
+        <div class="ping">
+            <input type="text" value="" id="zhi">
+        </div>
+        <div class="jian">
+            <input type="button" value="1" onclick="fuzhi(this)"> <input type="button" value="2" onclick="fuzhi(this)"> 
+            <input type="button" value="3" onclick="fuzhi(this)"> <input type="button" value="4" onclick="fuzhi(this)"> <br>
+            <input type="button" value="5" onclick="fuzhi(this)"> <input type="button" value="6" onclick="fuzhi(this)"> 
+            <input type="button" value="7" onclick="fuzhi(this)"> <input type="button" value="8" onclick="fuzhi(this)"> <br>
+            <input type="button" value="9" onclick="fuzhi(this)"> <input type="button" class="i" value="+" onclick="fuzhi(this)"> 
+            <input type="button" class="i" value="-" onclick="fuzhi(this)"> <input type="button" class="i" value="*" onclick="fuzhi(this)"> <br>
+            <input type="button" value="0" onclick="fuzhi(this)"> <input type="button" class="i" value="/" onclick="fuzhi(this)"> 
+            <input type="button" class="i" value="c" onclick="del()"> <input type="button" class="i" value="=" onclick="sum()"> <br>
+        </div>
+        <script>
+            function fuzhi(a){
+                document.getElementById("zhi").value +=a.value;
+            }
+            function sum(){
+                var result = document.getElementById("zhi").value;
+                if(result.indexOf("=")<0){
+                    document.getElementById("zhi").value = eval(result);
+                }
+            }
+            function del(){
+                document.getElementById("zhi").value = null;
+            }
+        </script>
+    </div>
+</body>
+</html>
+
