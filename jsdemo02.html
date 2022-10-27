@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p id="demo"></p>
+    <form>
+        <input type="button" value="打开窗口" onclick="open_win()">
+        <input type="button" value="关闭窗口" onclick="close_win()">
+    </form>
+
+</body>
+<script>
+    var w = window.innerWidth
+    var h = window.innerHeight
+    x = document.getElementById("demo")
+    // console.log(message)
+    // alert(w)
+    // alert(h)
+    x.innerHTML = "浏览器window宽度：" + w + "，高度是：" + h + "。"
+
+    function open_win(){
+        window.open("http://www.baidu.com")
+    }
+
+    function close_win(){
+        window.close()
+    }
+
+</script>
+
+</html>
