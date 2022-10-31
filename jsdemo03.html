@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    <input type="text" id="input" placeholder="请输入···">
+    <h1>失去焦点弹出获取到的值</h1>
+</body>
+<script>
+
+    var input = document.getElementById("input")
+    input.onblur = function () {
+        var valueinput = document.getElementById("input").value
+        alert(valueinput)
+    }
+
+</script>
+
+<html>
