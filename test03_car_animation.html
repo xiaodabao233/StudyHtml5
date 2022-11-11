@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car animation</title>
+    <style>
+        .track {
+            width: 500px;
+            height: 450px;
+            margin: auto;
+
+            margin-top: 10%;
+        }
+
+        .trackOne {
+            /* display: none; */
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background-color: #3d4eb1;
+            z-index: 2;
+            margin: auto;
+        }
+
+        .trackTwo {
+            width: 450px;
+            height: 350px;
+            border: 2px dashed rgb(0, 0, 0);
+            position: relative;
+            margin: auto;
+            margin-top: -27px;
+            z-index: 1;
+
+        }
+
+        .trackThree {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            margin: auto;
+            margin-top: 23px;
+        }
+
+        .trackOne,
+        .trackThree {
+            border: 2px solid #000;
+        }
+
+        .trackOne,
+        .trackTwo,
+        .trackThree {
+            border-radius: 5%;
+        }
+
+        .trackOne img {
+            position: relative;
+            width: 50px;
+            /* border-radius: 10px; */
+            /* padding: 5px; */
+            z-index: 9;
+            animation: moveCar 4s infinite;
+        }
+
+        @keyframes moveCar {
+            0% {
+                top: -10px;
+                left: 1px;
+            }
+
+            25% {
+                top: -10px;
+                left: 445px;
+            }
+
+            50% {
+                top: 340px;
+                left: 445px;
+            }
+
+            75% {
+                top: 340px;
+                left: 1px;
+            }
+
+            100% {
+                top: -10px;
+                left: 1px;
+                /* rotate: 270deg; */
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="track">
+        <div class="trackOne">
+            <img src="images/Car.png" alt="">
+            <div class="trackTwo">
+                <div class="trackThree">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
