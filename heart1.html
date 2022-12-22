@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body flt-renderer="canvaskit (auto-selected)" flt-build-mode="release" spellcheck="false" style="position: fixed; inset: 0px; overflow: hidden; padding: 0px; margin: 0px; user-select: none; touch-action: none; font: 14px sans-serif; color: red;">
+    <!-- This script installs service_worker.js to provide PWA functionality to
+         application. For more information, see:
+         https://developers.google.com/web/fundamentals/primers/service-workers -->
+    <script>
+      var serviceWorkerVersion = '2142429430';
+      var scriptLoaded = false;
+      function loadMainDartJs() {
+        if (scriptLoaded) {
+          return;
+        }
+        scriptLoaded = true;
+        var scriptTag = document.createElement('script');
+        scriptTag.src = 'main.dart.js';
+        scriptTag.type = 'application/javascript';
+        document.body.append(scriptTag);
+      }
+  
+      if ('serviceWorker' in navigator) {
+        // Service workers are supported. Use them.
+        window.addEventListener('load', function () {
+          // Wait for registration to finish before dropping the <script> tag.
+          // Otherwise, the browser will load the script multiple times,
+          // potentially different versions.
+          var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+          navigator.serviceWorker.register(serviceWorkerUrl)
+            .then((reg) => {
+              function waitForActivation(serviceWorker) {
+                serviceWorker.addEventListener('statechange', () => {
+                  if (serviceWorker.state == 'activated') {
+                    console.log('Installed new service worker.');
+                    loadMainDartJs();
+                  }
+                });
+              }
+              if (!reg.active && (reg.installing || reg.waiting)) {
+                // No active web worker and we have installed or are installing
+                // one for the first time. Simply wait for it to activate.
+                waitForActivation(reg.installing || reg.waiting);
+              } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+                // When the app updates the serviceWorkerVersion changes, so we
+                // need to ask the service worker to update.
+                console.log('New service worker available.');
+                reg.update();
+                waitForActivation(reg.installing);
+              } else {
+                // Existing service worker is still good.
+                console.log('Loading app from service worker.');
+                loadMainDartJs();
+              }
+            });
+  
+          // If service worker doesn't succeed in a reasonable amount of time,
+          // fallback to plaint <script> tag.
+          setTimeout(() => {
+            if (!scriptLoaded) {
+              console.warn(
+                'Failed to load app from service worker. Falling back to plain <script> tag.',
+              );
+              loadMainDartJs();
+            }
+          }, 4000);
+        });
+      } else {
+        // Service workers not supported. Just drop the <script> tag.
+        loadMainDartJs();
+      }
+    </script>
+  
+  
+  <flt-glass-pane style="position: absolute; inset: 0px; cursor: default;">
+    <flt-semantics-host style="position: absolute; transform-origin: 0px 0px 0px; transform: scale(0.8);"></flt-semantics-host>
+    <flt-semantics-placeholder role="button" aria-live="polite" tabindex="0" aria-label="Enable accessibility" style="position: absolute; left: -1px; top: -1px; width: 1px; height: 1px;"></flt-semantics-placeholder>
+    <flt-scene-host aria-hidden="true" style="pointer-events: none;"><flt-scene><flt-canvas-container><canvas width="1867" height="1252" style="position: absolute; width: 1493.6px; height: 1001.6px; transform: translate(0px, 0px);"></canvas></flt-canvas-container></flt-scene></flt-scene-host>
+</flt-glass-pane>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a herf="./index2">作业</a>
+        <a herf="./index2">作业</a>
+    </div>
+    <div class="username">
+        账户
+        <input type="text" name="" id="user" placeholder="账户">
+    </div>
+    <div class="password">
+        密码
+        <input type="password" name="" id="mima" placeholder="密码">
+    </div>
+    <div class="quedp">
+        确认密码
+        <input type="password" name="" id="quermima" placeholder="确认密码">
+    </div>
+    <div class="btn"><button onclick="buttonClick()">确定</button></div>
+
+<script>
+    function buttonClick() {
+        let userNames = document.getElementById("user").value;
+        let password1 = document.getElementById("mima").value;
+        let password2 = document.getElementById("quermima").value;
+        let len = password1.length;
+        if (len <= 6 && userNames == "") {
+            alert("密码或用户名不能为空且密码长度需大于6位")
+        } else if (password1 == password2) {
+            alert("注册成功")
+            console.log("12345");
+            console.log(password2);
+        } else {
+            alert("两次密码不一致")
+            console.log(password2);
+        }
+    }
+</script>
+
+
+</body>
+    
+</html>
